@@ -15,6 +15,17 @@ class CreateVehiculosTable extends Migration
     {
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->id();
+            $table->text('modelo');
+            $table->text('color');
+            $table->text('patente');
+            $table->integer('año');
+            $table->integer('coste');
+            $table->integer('vecesArrendado');
+            $table->boolean('disponible');
+
+            $table->unsignedBigInteger('id_sucursales')->nullable();
+            $table->foreign('id_sucursales')->references('id')->on('sucursales');
+    
             $table->timestamps();
         });
     }

@@ -15,6 +15,16 @@ class CreateArriendosTable extends Migration
     {
         Schema::create('arriendos', function (Blueprint $table) {
             $table->id();
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
+
+            $table->unsignedBigInteger('id_vehiculo')->nullable();
+            $table->foreign('id_vehiculo')->references('id')->on('vehiculos');
+
+            $table->unsignedBigInteger('id_clientes')->nullable();
+            $table->foreign('id_clientes')->references('id')->on('clientes');
+            
+            $table->boolean('delete');
             $table->timestamps();
         });
     }
