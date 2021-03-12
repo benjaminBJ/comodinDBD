@@ -15,6 +15,7 @@ class CreateArriendosTable extends Migration
     {
         Schema::create('arriendos', function (Blueprint $table) {
             $table->id();
+            $table->integer('costeTotal');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
 

@@ -25,7 +25,8 @@ class CreateVehiculosTable extends Migration
 
             $table->unsignedBigInteger('id_sucursales')->nullable();
             $table->foreign('id_sucursales')->references('id')->on('sucursales');
-    
+            
+            $table->boolean('delete');
             $table->timestamps();
         });
     }
